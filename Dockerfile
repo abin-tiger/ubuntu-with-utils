@@ -1,10 +1,5 @@
 FROM ubuntu:bionic
 
-RUN wget "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -O "awscliv2.zip" \
-    && unzip awscliv2.zip \
-    && ./aws/install \
-    && rm -rf awscliv2.zip \
-    && rm -rf ./aws
 
 RUN set -x && apt-get update && \
     #
@@ -42,6 +37,13 @@ RUN set -x && apt-get update && \
         touch ~devuser/.sudo_as_admin_successful && \
         # allow devuser to install files to /usr/local without sudo prefix
         chown -R root:sudo /usr/local
+
+
+RUN wget "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -O "awscliv2.zip" \
+    && unzip awscliv2.zip \
+    && ./aws/install \
+    && rm -rf awscliv2.zip \
+    && rm -rf ./aws
 
 USER devuser
 
