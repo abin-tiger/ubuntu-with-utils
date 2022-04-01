@@ -2,6 +2,7 @@
 
 A docker image with basic development and diagnostic tools:
 
+- aws
 - `bash-completion`
 - `vim` `less` `man` `jq`
 - `lsof` `tree` `pstree`
